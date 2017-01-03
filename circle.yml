@@ -8,7 +8,7 @@ machine:
 
 test:
   override:
-    - ecph 'ok'
+    - echo 'ok'
 
 deployment:
   gcloud:
