@@ -22,4 +22,4 @@ deployment:
       - docker rm spiderslab-site
       - docker rmi spiderslab-site:v0.1
       - docker build -t spiderslab-site:v0.1 .
-      - docker run --name spiderslab-site -p 8001:3001 -t spiderslab-site:v0.1
+      - docker run --name spiderslab-site -p 80:3001 -t spiderslab-site:v0.1
