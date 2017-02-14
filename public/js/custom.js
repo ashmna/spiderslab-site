@@ -87,7 +87,7 @@ $(window).resize(function() {
         function isValidEmail(emailAddress) {
             var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
             return pattern.test(emailAddress);
-        };
+        }
         if (isValidEmail(email) && (message.length > 1) && (name.length > 1)) {
             $.ajax({
                 type: "POST",
@@ -166,22 +166,22 @@ $(window).resize(function() {
     /*---------------------------------------*/
     /*	SCREENSHOT CAROUSEL
 	/*---------------------------------------*/
-
-    $("#screenshots").owlCarousel({
-        navigation: false,
-        slideSpeed: 300,
-        paginationSpeed: 400,
-        singleItem: true
-    });
+    //
+    // $("#screenshots").owlCarousel({
+    //     navigation: false,
+    //     slideSpeed: 300,
+    //     paginationSpeed: 400,
+    //     singleItem: true
+    // });
 
 
     /*---------------------------------------*/
     /*	SCREENSHOT LIGHTBOX
 	/*---------------------------------------*/
-
-    $('#screenshots a').nivoLightbox({
-        effect: 'fadeScale',
-    });
+    //
+    // $('#screenshots a').nivoLightbox({
+    //     effect: 'fadeScale',
+    // });
 
 
     /*---------------------------------------*/
@@ -220,22 +220,22 @@ $(window).resize(function() {
     $.fn.modal.Constructor.prototype.setScrollbar = function() {
         oldSSB.apply(this);
         if (this.scrollbarWidth) $('.navbar-fixed-top').css('padding-right', this.scrollbarWidth);
-    }
+    };
 
     var oldRSB = $.fn.modal.Constructor.prototype.resetScrollbar;
     $.fn.modal.Constructor.prototype.resetScrollbar = function() {
         oldRSB.apply(this);
         $('.navbar-fixed-top').css('padding-right', '');
-    }
+    };
 
     if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-        var msViewportStyle = document.createElement('style')
+        var msViewportStyle = document.createElement('style');
         msViewportStyle.appendChild(
             document.createTextNode(
                 '@-ms-viewport{width:auto!important}'
             )
-        )
-        document.querySelector('head').appendChild(msViewportStyle)
+        );
+        document.querySelector('head').appendChild(msViewportStyle);
     }
 
 
@@ -247,118 +247,118 @@ $(window).resize(function() {
 /*---------------------------------------*/
 /*	GOOGLE MAP
 /*---------------------------------------*/
-jQuery(document).ready(function($) {
-
-    "use strict";
-    //set your google maps parameters
-    var $latitude = 51.522532, //If you unable to find latitude and longitude of your address. Please visit http://www.latlong.net/convert-address-to-lat-long.html you can easily generate.
-        $longitude = 0.031639,
-        $map_zoom = 16; /* ZOOM SETTING */
-
-    //google map custom marker icon - .png fallback for IE11
-    var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-    var $marker_url = (is_internetExplorer11) ? 'images/map-marker.png' : 'images/map-marker.svg';
-
-    //we define here the style of the map
-    var style = [{
-        "stylers": [{
-            "hue": "#00aaff"
-        }, {
-            "saturation": -100
-        }, {
-            "gamma": 2.15
-        }, {
-            "lightness": 12
-        }]
-    }];
-
-    //set google map options
-    var map_options = {
-        center: new google.maps.LatLng($latitude, $longitude),
-        zoom: $map_zoom,
-        panControl: true,
-        zoomControl: true,
-        mapTypeControl: false,
-        streetViewControl: true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scrollwheel: false,
-        styles: style,
-    }
-    //inizialize the map
-    var map = new google.maps.Map(document.getElementById('google-container'), map_options);
-    //add a custom marker to the map				
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng($latitude, $longitude),
-        map: map,
-        visible: true,
-        icon: $marker_url,
-    });
-
-   
-});
+// jQuery(document).ready(function($) {
+//
+//     "use strict";
+//     //set your google maps parameters
+//     var $latitude = 51.522532, //If you unable to find latitude and longitude of your address. Please visit http://www.latlong.net/convert-address-to-lat-long.html you can easily generate.
+//         $longitude = 0.031639,
+//         $map_zoom = 16; /* ZOOM SETTING */
+//
+//     //google map custom marker icon - .png fallback for IE11
+//     var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+//     var $marker_url = (is_internetExplorer11) ? 'images/map-marker.png' : 'images/map-marker.svg';
+//
+//     //we define here the style of the map
+//     var style = [{
+//         "stylers": [{
+//             "hue": "#00aaff"
+//         }, {
+//             "saturation": -100
+//         }, {
+//             "gamma": 2.15
+//         }, {
+//             "lightness": 12
+//         }]
+//     }];
+//
+//     //set google map options
+//     var map_options = {
+//         center: new google.maps.LatLng($latitude, $longitude),
+//         zoom: $map_zoom,
+//         panControl: true,
+//         zoomControl: true,
+//         mapTypeControl: false,
+//         streetViewControl: true,
+//         mapTypeId: google.maps.MapTypeId.ROADMAP,
+//         scrollwheel: false,
+//         styles: style,
+//     }
+//     //inizialize the map
+//     var map = new google.maps.Map(document.getElementById('google-container'), map_options);
+//     //add a custom marker to the map
+//     var marker = new google.maps.Marker({
+//         position: new google.maps.LatLng($latitude, $longitude),
+//         map: map,
+//         visible: true,
+//         icon: $marker_url,
+//     });
+//
+//
+// });
 
 
 /*---------------------------------------*/
 /*	TIMELINE SLIDER
 	/*---------------------------------------*/
-jQuery(window).load(function() {
-
-    'use strict';
-    
-    var x = 0,
-        init,
-        container = $('.timeline-section'),
-        /* TIMELINE SELECTOR */
-        items = container.find('li'),
-        containerHeight = 0,
-        numberVisible = 4,
-        /* NUMBER OF <li> TO SHOW IN SCROLLER */
-        intervalSec = 4000; /* INTERVAL TIME */
-
-    if (!container.find('li:first').hasClass("first")) {
-        container.find('li:first').addClass("first");
-    }
-
-    items.each(function() {
-        if (x < numberVisible) {
-            containerHeight = containerHeight + $(this).outerHeight();
-            x = x + 1;
-        }
-    });
-
-    container.css({
-        height: containerHeight,
-        overflow: "hidden"
-    });
-
-    function vertCycle() {
-        var firstItem = container.find('li.first').html();
-
-        container.append('<li>' + firstItem + '</li>');
-        firstItem = '';
-        container.find('li.first').animate({
-            marginTop: "-105px",
-            opacity: "0"
-        }, 600, function() {
-            $(this).remove();
-            container.find('li:first').addClass("first");
-        });
-    }
-
-    if (intervalSec < 700) {
-        intervalSec = 700;
-    }
-
-    init = setInterval(function() {
-        vertCycle();
-    }, intervalSec);
-
-    container.hover(function() {
-        clearInterval(init);
-    }, function() {
-        init = setInterval(function() {
-            vertCycle();
-        }, intervalSec);
-    });
-
-});
+// jQuery(window).load(function() {
+//
+//     'use strict';
+//
+//     var x = 0,
+//         init,
+//         container = $('.timeline-section'),
+//         /* TIMELINE SELECTOR */
+//         items = container.find('li'),
+//         containerHeight = 0,
+//         numberVisible = 4,
+//         /* NUMBER OF <li> TO SHOW IN SCROLLER */
+//         intervalSec = 4000; /* INTERVAL TIME */
+//
+//     if (!container.find('li:first').hasClass("first")) {
+//         container.find('li:first').addClass("first");
+//     }
+//
+//     items.each(function() {
+//         if (x < numberVisible) {
+//             containerHeight = containerHeight + $(this).outerHeight();
+//             x = x + 1;
+//         }
+//     });
+//
+//     container.css({
+//         height: containerHeight,
+//         overflow: "hidden"
+//     });
+//
+//     function vertCycle() {
+//         var firstItem = container.find('li.first').html();
+//
+//         container.append('<li>' + firstItem + '</li>');
+//         firstItem = '';
+//         container.find('li.first').animate({
+//             marginTop: "-105px",
+//             opacity: "0"
+//         }, 600, function() {
+//             $(this).remove();
+//             container.find('li:first').addClass("first");
+//         });
+//     }
+//
+//     if (intervalSec < 700) {
+//         intervalSec = 700;
+//     }
+//
+//     init = setInterval(function() {
+//         vertCycle();
+//     }, intervalSec);
+//
+//     container.hover(function() {
+//         clearInterval(init);
+//     }, function() {
+//         init = setInterval(function() {
+//             vertCycle();
+//         }, intervalSec);
+//     });
+//
+// });
