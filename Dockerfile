@@ -2,10 +2,8 @@ FROM node:7-alpine
 
 # Create app directory
 RUN mkdir -p /usr/src/app
-RUN mkdir -p /usr/src/app/data
-WORKDIR /usr/src/app
 
-VOLUME ["/usr/src/app/data"]
+WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package.json /usr/src/app/
